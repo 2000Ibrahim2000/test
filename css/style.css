@@ -58,7 +58,7 @@ li {
 
 /* Start Header */
 header {
-    padding: 15px;
+
     background-image: var(--main-gradient);
 }
 header .container {
@@ -67,11 +67,15 @@ header .container {
     align-items: center;
     position: relative;
 }
+header .container .main-logo {
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
 @media (max-width: 768px) {
     header .container .logo {
         width: 150px;
     }
-
 }
 header nav {
     flex: 1;
@@ -89,13 +93,38 @@ header nav .toggle-menu {
     }
 }
 header nav ul {
-    display: flex;
-    
+    display: flex;  
 }
 header nav ul li {
     display: flex;
     align-items: center;
     position: relative;
+    height: 55px;
+}
+header nav ul li ul {
+    position: absolute;
+    flex-direction: column;
+    top: 55px;
+    background-color: rgba(255, 255, 255,50%);
+    box-shadow:0px 4px 90px rgba(0, 0, 0, 20%);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    min-width: 350px;
+    left: -120%;  
+    border-radius: 5px;
+    display: none;
+    z-index: 500;
+}
+header nav ul li ul li {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+}
+header nav ul li ul li a {
+    display: block;
+    color: var(--main-color);
+    transition: 0.3s;
+    font-weight: 600;
 }
 header nav ul li a { 
     display: block;
@@ -113,11 +142,17 @@ header nav ul li a .fa-chevron-down {
     position: absolute;
     transition: 0.3s;
     right: -3px;
-    top: 7px;
-    
+    top: 7px;   
 }
 header nav ul li:hover .fa-chevron-down {
     transform: rotate(180deg);
+}
+header nav ul li:hover ul {
+    display: block
+} 
+header nav ul li ul li:hover a {
+    padding-left: 35px;
+    color: red;
 }
 @media (max-width: 1199px) {
     header nav ul {
@@ -127,7 +162,7 @@ header nav ul li:hover .fa-chevron-down {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 135%;
+        top: 100%;
         left: -15px;
         width:100%;
         background-color: #222;
@@ -149,7 +184,7 @@ header nav ul li:hover .fa-chevron-down {
 }
 @media (max-width: 768px) {
     header nav .toggle-menu:hover + ul {  
-        top: 155%;
+        top: 99%;
         width: calc(100% + 30px);
     }
 }
@@ -171,11 +206,13 @@ width: 100%;
 
 /*Start buttons */
 .buttons {
-    text-align: center;
-    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-7px);
 }
-.login-button {
-    background-color: var(--main-color);
+/* .login-button {
+    background: linear-gradient(45deg, rgba(33,64,154,1) 0%,#2196f3 100%);
     border: none;
     font-size: 18px;
     color: white;
@@ -197,6 +234,49 @@ width: 100%;
     padding: 4px 6px;
     font-weight: bold;
     cursor: pointer; 
+} */
+.buttons .BackgroundGradient {
+    background: linear-gradient(45deg, rgba(33,64,154,1) 0%,#2196f3 100%);
+}
+.buttons .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+    
+}
+.btn span {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    margin: 3px;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    border-radius: 50%;
+    color: var(--main-color);
+    line-height: 139px;
+    transition: 0.5s all;
+    font-size: 20px;
+    font-weight: bold;
+}
+.buttons .btn:hover span {
+    background-color: rgba(34,34,34,0);
+    color: white;
+}
+@media (max-width: 768px) {
+    .buttons .btn {
+        width: 100px;
+        height: 100px;
+    }
+    .btn span {
+        line-height: 95px;
+        font-size: 14px;
+    }
 }
 /*End buttons */
 
@@ -242,6 +322,7 @@ main .container .title {
     margin-bottom: 28px;
     width: 100%;
     text-align: center;
+    color: var(--main-color);
 }
 main .container section .box {
     width: 270px;
@@ -280,7 +361,7 @@ main .container section .box p {
 }
 main .container aside {
     position: relative;
-    height: 1280px;
+    /* height: 1280px; */
     width: 35%;
     float: right;
 }
@@ -321,9 +402,7 @@ main .container aside .aside-box .box-inside-aside h5 {
         margin-top: 40px;
     }
     main .container aside .aside-box {
-        width: 300px;
-        height: 1012px;
-        
+        width: 300px;   
     }
 }
 /* End main */
@@ -377,6 +456,16 @@ main .container aside .aside-box .box-inside-aside h5 {
 .footer .container .sec-logo i {
     color: #2196f3;
     animation: bouncing 1.5s infinite;
+}
+@media (max-width: 1190px) {
+    .footer .container {
+        margin-top: 2000px;
+    }
+}
+@media (max-width: 600px) {
+    .footer .container {
+        margin-top: 3629px;
+    }
 }
 @keyframes bouncing {
     0%,
