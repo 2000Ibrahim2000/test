@@ -1,3 +1,3 @@
 # test
-HTML , CSS
+HTML, CSS, javascript
 made by ❤️ Ibrahim Hassanein
